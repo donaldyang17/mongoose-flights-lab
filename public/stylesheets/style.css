@@ -4,5 +4,12 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  display: grid;
+  align-content: center;
+  color: #00b7ff;
+}
+
+#flightTable {
+  display: grid;
+  background-color: red;
 }
