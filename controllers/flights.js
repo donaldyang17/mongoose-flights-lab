@@ -17,9 +17,16 @@ function index(req, res) {
     res.render("flights/index", { title: "All Flights", flights });
   });
 }
+function show(req, res) {
+  Flight.findById(req.params.id, function (err, flight) {
+    console.log(flight);
+    res.render("flights/destinations", { title: "Destination", flight });
+  });
+}
 
 module.exports = {
   new: newFlight,
   create,
   index,
+  show,
 };

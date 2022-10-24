@@ -8,7 +8,8 @@ router.get("/", function (req, res, next) {
 });
 
 router.get("/new", flightsCtrl.new);
-router.post("/", flightsCtrl.create);
 router.get("/index", flightsCtrl.index);
+router.get("/:id", flightsCtrl.show);
+router.post("/", flightsCtrl.create);
 
 module.exports = router;

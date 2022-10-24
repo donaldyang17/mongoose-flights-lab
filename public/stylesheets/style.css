@@ -11,5 +11,6 @@ a {
 
 #flightTable {
   display: grid;
-  background-color: red;
+  border-style: dashed;
+  grid-gap: 1rem;
 }
