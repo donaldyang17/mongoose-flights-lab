@@ -7,20 +7,21 @@
     <title>Test Ticket</title>
   </head>
   <body>
+    <a href="/flights/new">ADD FLIGHTS</a>
+    <a href="/flights/index">ALL FLIGHTS</a>
     <p>
-      Please first ensure that the Performer is not in the dropdown
-      <select>
-        <% tickets.forEach(function(t) { %>
-        <option><%= t.seat %></option>
-        <% }) %>
-      </select>
+      Please first ensure that the Performer is not in the dropdown <%
+      tickets.forEach(function(t) { %>
+      <ul><%= t.seat %></ul>
+      <% }) %>
     </p>
     <form id="add-ticket-form" action="/tickets" method="POST">
-      <label>Name:</label>
-      <input type="text" name="seat" />
-      <label>Born:</label>
+      <label>Seat:</label>
+      <input name="seat" required pattern="[A-F][1-9]\d?" />
+
+      <label>Price:</label>
       <input type="number" name="price" />
-      <input type="submit" value="Add Performer" />
+      <input type="submit" value="Add Ticket" />
     </form>
   </body>
 </html>

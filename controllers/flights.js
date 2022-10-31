@@ -40,7 +40,13 @@ module.exports = {
 
 function show(req, res) {
   Flight.findById(req.params.id, function (err, flight) {
-    console.log(flight);
-    res.render("flights/destinations", { title: "Destination", flight });
+    Ticket.find({ flight: flight._id }, function (err, tickets) {
+      console.log(flight);
+      res.render("flights/destinations", {
+        title: "Destination",
+        flight,
+        tickets,
+      });
+    });
   });
 }
