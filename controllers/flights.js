@@ -28,10 +28,7 @@ module.exports = {
 
 function show(req, res) {
   Flight.findById(req.params.id, function (err, flight) {
-    console.log(flight);
-    console.log(flight._id);
     Ticket.find({ flight: flight._id }, function (err, tickets) {
-      console.log(tickets);
       res.render("flights/destinations", {
         title: "Destination",
         flight,

@@ -20,17 +20,10 @@ function newTicket(req, res) {
       flight,
     });
   });
-  // Ticket.find({}, function (err, tickets) {
-  //   console.log(tickets);
-  //   res.render("tickets/new", {
-  //     tickets,
-  //   });
-  // });
 }
 
 function create(req, res) {
   Ticket.create(req.body, function (err, ticket) {
-    ticket.flight = console.log(ticket);
     res.redirect("tickets/new");
   });
 }
