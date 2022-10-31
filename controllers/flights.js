@@ -18,18 +18,6 @@ function index(req, res) {
     res.render("flights/index", { title: "All Flights", flights });
   });
 }
-function show(req, res) {
-  Flight.findById(req.params.id, function (err, flight) {
-    Ticket.find({ flight: flight._id }, function (err, ticket) {
-      console.log(flight);
-      res.render("flights/destinations", {
-        title: "Destination",
-        flight,
-        ticket,
-      });
-    });
-  });
-}
 
 module.exports = {
   new: newFlight,
@@ -40,8 +28,10 @@ module.exports = {
 
 function show(req, res) {
   Flight.findById(req.params.id, function (err, flight) {
+    console.log(flight);
+    console.log(flight._id);
     Ticket.find({ flight: flight._id }, function (err, tickets) {
-      console.log(flight);
+      console.log(tickets);
       res.render("flights/destinations", {
         title: "Destination",
         flight,

@@ -10,7 +10,6 @@
   <body>
     <a href="/flights/new">ADD FLIGHTS</a>
     <a href="/flights/index">ALL FLIGHTS</a>
-    <a href="/tickets/new">New Ticket</a>
   </body>
 </html>
 <br /><br />
@@ -62,28 +61,21 @@
     <tr>
       <th>Seat</th>
       <th>Price</th>
-      <th>Flight Number</th>
     </tr>
   </thead>
   <tbody>
-    <% tickets.forEach(function(t) { %>
     <tr>
+      <% tickets.forEach(function(t) { %>
       <td><%= t.seat %></td>
       <td><%= t.price %></td>
-      <td><%= t.flight %></td>
     </tr>
     <% }); %>
   </tbody>
 </table>
-<form
-  id="add-per-to-cast"
-  action="/flights/<%= flight._id %>/tickets/"
-  method="POST"
->
-  <select name="ticketID">
-    <%- tickets.map(t => `
-    <option value="${t._id}">${t._id}</option>
-    ` ).join('') %>
-  </select>
-  <button type="submit">Add to Flight</button>
-</form>
+</br>
+
+
+<a href="/tickets/new/<%= flight._id %>">
+  <button >Add to Flight</button>
+</a>
+

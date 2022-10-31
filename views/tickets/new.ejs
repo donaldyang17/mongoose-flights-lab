@@ -9,13 +9,12 @@
   <body>
     <a href="/flights/new">ADD FLIGHTS</a>
     <a href="/flights/index">ALL FLIGHTS</a>
-    <p>
-      Please first ensure that the Performer is not in the dropdown <%
-      tickets.forEach(function(t) { %>
-      <ul><%= t.seat %></ul>
-      <% }) %>
-    </p>
-    <form id="add-ticket-form" action="/tickets" method="POST">
+
+    <form
+      id="add-ticket-form"
+      action="/flights/<%=flight._id %>/tickets"
+      method="POST"
+    >
       <label>Seat:</label>
       <input name="seat" required pattern="[A-F][1-9]\d?" />
 
